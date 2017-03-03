@@ -98,15 +98,15 @@ class StringObject
      * StringObject::format
      * 
      * Método que seta valores para preenchimento de chaves no meio da string,
-     * tendo seu comportamento semelhante ao sprintf ao setar os valores.
+     * tendo seu comportamento semelhante ao vsprintf ao setar os valores.
      * 
      * As chaves usadas na string segue o mesmo padrão da função sprintf
-     * @see http://php.net/manual/en/function.sprintf.php
+     * @see http://php.net/manual/en/function.vsprintf.php
      * 
      * @example 
      * $texto = new StringObject('Nome: %s , Idade %d anos'); 
-     * echo $texto->format(new ArrayObject('Pedro, 15')); // Nome: Pedro, Idade 15 anos
-     * echo $texto->format(new ArrayObject('Maria, 32')); // Nome: Maria, Idade 32 anos
+     * echo $texto->format(new ArrayObject(array('Pedro', '15'))); // Nome: Pedro, Idade 15 anos
+     * echo $texto->format(new ArrayObject(array('Maria', '32'))); // Nome: Maria, Idade 32 anos
      * 
      * @param \ArrayObject $values As ordens dos valores devem seguir a ordem das
      * chaves no meio da string
@@ -115,7 +115,7 @@ class StringObject
      */
     public function format(\ArrayObject $values)
     {
-        return new StringObject(sprintf($this->string, $values));
+        return new StringObject(vsprintf($this->string, $values));
     }
 
     /**

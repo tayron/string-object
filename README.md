@@ -51,9 +51,9 @@ try{
     $numero->replace('3', '999');
     var_dump($numero);
 
-    $texto = new StringObject('Nome: %s , Idade %d anos'); // Template matriz
-    echo $texto->format(new ArrayObject('Pedro, 15')); // Nome: Pedro, Idade 15 anos
-    echo $texto->format(new ArrayObject('Maria, 32')); // Nome: Maria, Idade 32 anos    
+    $texto = new StringObject('Nome: %s , Idade %d anos'); 
+    echo $texto->format(new ArrayObject(array('Pedro', '15'))); // Nome: Pedro, Idade 15 anos
+    echo $texto->format(new ArrayObject(array('Maria', '32'))); // Nome: Maria, Idade 32 anos   
 }catch(\Exception $e){
     echo $e->getMessage();
 }
