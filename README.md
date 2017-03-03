@@ -9,6 +9,7 @@ Classe para gerenciamento de string
   - parseIntegerObject() - Método que converte um objeto StringObject em IntegerObject
   - parseFloatObject() - Método que converte um objeto StringObject em FloatObject
   - replace(StringObject $search, StringObject $replace) - Método que procura por uma string e substui por outra
+  - format(ArrayObject $values) - Método que seta valores para preenchimento de chaves no meio da string, tendo seu comportamento semelhante ao sprintf ao setar os valores.
   - toLower() - Método que converte todos as letras em minúscula
   - toUpper() - Método que converte todos as letras em maiúscula
 
@@ -49,6 +50,10 @@ try{
 
     $numero->replace('3', '999');
     var_dump($numero);
+
+    $texto = new StringObject('Nome: %s , Idade %d anos'); // Template matriz
+    echo $texto->format(new ArrayObject('Pedro, 15')); // Nome: Pedro, Idade 15 anos
+    echo $texto->format(new ArrayObject('Maria, 32')); // Nome: Maria, Idade 32 anos    
 }catch(\Exception $e){
     echo $e->getMessage();
 }

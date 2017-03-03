@@ -93,6 +93,30 @@ class StringObject
     {
         $this->string = str_replace($search, $replace, $this->string);
     }
+    
+    /**
+     * StringObject::format
+     * 
+     * Método que seta valores para preenchimento de chaves no meio da string,
+     * tendo seu comportamento semelhante ao sprintf ao setar os valores.
+     * 
+     * As chaves usadas na string segue o mesmo padrão da função sprintf
+     * @see http://php.net/manual/en/function.sprintf.php
+     * 
+     * @example 
+     * $texto = new StringObject('Nome: %s , Idade %d anos'); 
+     * echo $texto->format(new ArrayObject('Pedro, 15')); // Nome: Pedro, Idade 15 anos
+     * echo $texto->format(new ArrayObject('Maria, 32')); // Nome: Maria, Idade 32 anos
+     * 
+     * @param \ArrayObject $values As ordens dos valores devem seguir a ordem das
+     * chaves no meio da string
+     * 
+     * @return StringObject Com a string formatada
+     */
+    public function format(\ArrayObject $values)
+    {
+        return new StringObject(sprintf($this->string, $values));
+    }
 
     /**
      * StringObject::toLower
