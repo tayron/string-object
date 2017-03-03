@@ -40,7 +40,7 @@ class StringObject
      */
 	public function isEquals(StringObject $string)
 	{
-		return ($this == $string);
+		return ($this->getValue() === $string->getValue());
 	}
 	
     /**
