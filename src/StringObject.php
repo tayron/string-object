@@ -32,9 +32,9 @@ class StringObject
     /**
      * StringObject::isEquals
      * 
-     * Método que verifica se o conteúdo do objeto corrente é igual ao do objeto Text informado
+     * Método que verifica se o conteúdo do objeto corrente é igual ao do objeto String informado
      * 
-     * @param StringObject $string Objeto Text informado pelo usuário
+     * @param StringObject $string Objeto String informado pelo usuário
      * 
      * @return boolean Retorna true se o conteúdo for igual ou false
      */
