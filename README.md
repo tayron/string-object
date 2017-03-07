@@ -6,6 +6,7 @@ Classe para gerenciamento de string
 ## Recursos
   - isEquals(StringObject $string) - Método que verifica se o conteúdo do objeto corrente é igual ao do objeto String informado
   - length() - Método que retorna o tamanho da string
+  - wordCount($format, $charlist) - Método que retorna o número de palavras usadas na string
   - parseIntegerObject() - Método que converte um objeto StringObject em IntegerObject
   - parseFloatObject() - Método que converte um objeto StringObject em FloatObject
   - replace(StringObject $search, StringObject $replace) - Método que procura por uma string e substui por outra
@@ -54,6 +55,9 @@ try{
     $texto = new StringObject('Nome: %s , Idade %d anos'); 
     echo $texto->format(new ArrayObject(array('Pedro', '15'))); // Nome: Pedro, Idade 15 anos
     echo $texto->format(new ArrayObject(array('Maria', '32'))); // Nome: Maria, Idade 32 anos   
+
+    $texto = new StringObject('O rato roeu a roupa do rei de Roma');
+    echo $texto->wordCount(); // 9
 }catch(\Exception $e){
     echo $e->getMessage();
 }

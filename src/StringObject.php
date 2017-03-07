@@ -54,6 +54,28 @@ class StringObject
 	{
 		return strlen($this->string);
 	}
+    
+    /**
+     * StringObject::wordCount
+     * 
+     * Método que retorna o número de palavras usadas na string
+     * 
+     * @param int $format Especifica o valor de retorno desta função. Os valores 
+     * atualmente suportados são: 
+     * 0 - Retorna o número de palavras encontradas 
+     * 1 - Retorna um array contendo todas as palavras encontradas dentro de string
+     * 2 - Retorna um array associativo, onde a chave é a posição numérica da palavra 
+     * dentro da string e o valor é a própria palavra. 
+     * 
+     * @param string $charlist Uma lista de caracteres adicionais que serão 
+     * considerados como 'palavra'. 
+     * 
+     * @return integer Retorna o número de palavras
+     */
+    public function wordCount($format = 0, $charlist = null)
+    {
+        return str_word_count($this->string, $format, $charlist);
+    }
 	
     /**
      * StringObject::parseIntegerObject
