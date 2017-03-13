@@ -9,11 +9,14 @@ Classe para gerenciamento de string
   - wordCount($format, $charlist) - Método que retorna o número de palavras usadas na string
   - parseIntegerObject() - Método que converte um objeto StringObject em IntegerObject
   - parseFloatObject() - Método que converte um objeto StringObject em FloatObject
+  - parseArrayObject() - Método que converte um StringObject em ArrayObject
   - replace(StringObject $search, StringObject $replace) - Método que procura por uma string e substui por outra
   - format(ArrayObject $values) - Método que seta valores para preenchimento de chaves no meio da string, tendo seu comportamento semelhante ao sprintf ao setar os valores.
   - toLower() - Método que converte todos as letras em minúscula
   - toUpper() - Método que converte todos as letras em maiúscula
-
+  - toUpperCaseWord($delimiters) - Método que converte todos os primeiros caracteres de cada palavra para maiúsculas
+  - trim($characterMask) - Método que retira espaço no ínicio e final de uma string 
+  
 
 ## Utilização via composer
 

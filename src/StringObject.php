@@ -102,6 +102,18 @@ class StringObject
 	}
     
     /**
+     * StringObject::parseArrayObject
+     * 
+     * Método que converte um StringObject em ArrayObject
+     * 
+     * @return ArrayObject Objeto convertido em ArrayObject
+     */    
+    public function parseArrayObject()
+    {
+        return new \ArrayObject(explode(' ', $this->string));
+    }
+    
+    /**
      * StringObject::replace
      * 
      * Método que procura por uma string e substui por outra 
@@ -162,6 +174,38 @@ class StringObject
     public function toUpper()
     {
         $this->string = strtoupper($this->string);
+    }
+    
+    /**
+     * StringObject::toUpperCaseWord
+     * 
+     * Método que converte todos os primeiros caracteres de cada palavra para maiúsculas
+     * 
+     * @param string $delimiters Delimitadores usadona separação das strings
+     * 
+     * @return void
+     */
+    public function toUpperCaseWord($delimiters = " \t\r\n\f\v")
+    {
+        $this->toLower();
+        $this->string = ucwords($this->string, $delimiters);
+    }
+    
+    /**
+     * StringObject::trim
+     * 
+     * Método que retira espaço no ínicio e final de uma string
+     * 
+     * @param string $characterMask Opcionalmente, os caracteres removidos pode 
+     * também ser especificados usando o parâmetro charlist. Simplesmente liste 
+     * todos os caracteres que você quer retirar. Com .. você pode especificar 
+     * um intervalo de caracteres. 
+     * 
+     * @return void
+     */
+    public function trim($characterMask = " \t\n\r\0\x0B")
+    {
+        $this->string = trim($this->string, $characterMask);
     }
     
     /**
