@@ -209,6 +209,31 @@ class StringObject
     }
     
     /**
+     * StringObject::utf8Encode
+     * 
+     * Método que codifica um string ISO-8859-1 para UTF-8
+     * 
+     * @return void
+     */
+    public function utf8Encode()
+    {
+        $this->string = utf8_encode($this->string);
+    }
+    
+    /**
+     * StringObject::utf8Decode
+     * 
+     * Método que converte uma string com caracteres ISO-8859-1 codificadas com 
+     * UTF-8 para single-byte ISO-8859-1
+     * 
+     * @return void
+     */
+    public function utf8Decode()
+    {
+        $this->string = utf8_decode($this->string);
+    }    
+    
+    /**
      * StringObject::getValue
      * 
      * Método que retorna o valor puro da string do objeto

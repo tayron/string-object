@@ -16,6 +16,8 @@ Classe para gerenciamento de string
   - toUpper() - Método que converte todos as letras em maiúscula
   - toUpperCaseWord($delimiters) - Método que converte todos os primeiros caracteres de cada palavra para maiúsculas
   - trim($characterMask) - Método que retira espaço no ínicio e final de uma string 
+  - utf8Encode() - Método que codifica um string ISO-8859-1 para UTF-8
+  - utf8Decode() - Método que converte uma string com caracteres ISO-8859-1 codificadas com UTF-8 para single-byte ISO-8859-1
   
 
 ## Utilização via composer
