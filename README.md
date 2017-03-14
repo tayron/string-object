@@ -12,9 +12,9 @@ Classe para gerenciamento de string
   - parseArrayObject() - Método que converte um StringObject em ArrayObject
   - replace(StringObject $search, StringObject $replace) - Método que procura por uma string e substui por outra
   - format(ArrayObject $values) - Método que seta valores para preenchimento de chaves no meio da string, tendo seu comportamento semelhante ao sprintf ao setar os valores.
-  - toLower() - Método que converte todos as letras em minúscula
-  - toUpper() - Método que converte todos as letras em maiúscula
-  - toUpperCaseWord($delimiters) - Método que converte todos os primeiros caracteres de cada palavra para maiúsculas
+  - toLowercase() - Método que converte todos as letras em minúscula
+  - toUppercase() - Método que converte todos as letras em maiúscula
+  - toUppercaseWord($delimiters) - Método que converte todos os primeiros caracteres de cada palavra para maiúsculas
   - trim($characterMask) - Método que retira espaço no ínicio e final de uma string 
   - utf8Encode() - Método que codifica um string ISO-8859-1 para UTF-8
   - utf8Decode() - Método que converte uma string com caracteres ISO-8859-1 codificadas com UTF-8 para single-byte ISO-8859-1

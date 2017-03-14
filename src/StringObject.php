@@ -153,31 +153,31 @@ class StringObject
     }
 
     /**
-     * StringObject::toLower
+     * StringObject::toLowercase
      * 
      * Método que converte todos as letras em minúscula
      * 
      * @return void
      */
-    public function toLower()
+    public function toLowercase()
     {
         $this->string = strtolower($this->string);
     }
 
     /**
-     * StringObject::toUpper
+     * StringObject::toUppercase
      * 
      * Método que converte todos as letras em maiúscula
      * 
      * @return void
      */
-    public function toUpper()
+    public function toUppercase()
     {
         $this->string = strtoupper($this->string);
     }
     
     /**
-     * StringObject::toUpperCaseWord
+     * StringObject::toUppercaseWord
      * 
      * Método que converte todos os primeiros caracteres de cada palavra para maiúsculas
      * 
@@ -185,7 +185,7 @@ class StringObject
      * 
      * @return void
      */
-    public function toUpperCaseWord($delimiters = " \t\r\n\f\v")
+    public function toUppercaseWord($delimiters = " \t\r\n\f\v")
     {
         $this->toLower();
         $this->string = ucwords($this->string, $delimiters);
