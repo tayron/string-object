@@ -187,7 +187,7 @@ class StringObject
      */
     public function toUppercaseWord($delimiters = " \t\r\n\f\v")
     {
-        $this->toLower();
+        $this->toLowercase();
         $this->string = ucwords($this->string, $delimiters);
     }
     
