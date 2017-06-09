@@ -12,8 +12,8 @@
     ],    
     "require": {
         "php": ">=5.3",
-        "tayron/integer-object": "dev-master",
-        "tayron/float-object": "dev-master"
+        "tayron/integer-object": "1.0.0",
+        "tayron/float-object": "1.0.0"
     },
     "autoload": {
         "psr-4": {
