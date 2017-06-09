@@ -1,4 +1,4 @@
-## StringObject 1.0.0
+## StringObject
 
 Classe para gerenciamento de string
 
@@ -25,7 +25,7 @@ Classe para gerenciamento de string
 ```sh
     "require": {
         ...
-        "tayron/string-object" : "1.0.0"
+        "tayron/string-object" : "dev-master"
         ... 
     },    
 ```
