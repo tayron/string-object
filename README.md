@@ -25,7 +25,7 @@ Classe para gerenciamento de string
 ```sh
     "require": {
         ...
-        "tayron/string-object" : "dev-master"
+        "tayron/string-object" : "1.0.0"
         ... 
     },    
 ```
