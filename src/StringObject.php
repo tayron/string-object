@@ -256,4 +256,84 @@ class StringObject
 	{
 		return (string)$this->string;
 	}	
+    
+    /**
+     * StringObject::mount
+     * 
+     * Método que auxilia na montagem de string contendo informações variadas
+     * como linha digitável
+     * 
+     * $linhaDigitavel = '';
+     * $this->mount(1, 3, 748, $linhaDigitavel);
+     * $this->mount(4, 4, 9, $linhaDigitavel);
+     * $this->mount(5, 5, 1, $linhaDigitavel);
+     * $this->mount(6, 6, '.', $linhaDigitavel);
+     * $this->mount(7, 11, 12345, $linhaDigitavel);
+     * $this->mount(12, 15, ' ', $linhaDigitavel);
+     * $this->mount(60, 62, 'x', $linhaDigitavel);
+     * 
+     * var_dump($linhaDigitavel);
+     * 
+     * Saida: string '74891.12345                                                xxx' (length=62)
+     * 
+     * @param string $lastPosition Posição inicial da string
+     * @param string $firstPosition Posição final da string
+     * @param string $value Valor que ocuparar a posição informada
+     * 
+     * @return void
+     */
+    public function mount($lastPosition, $firstPosition, $value)
+    {
+        $begin = $lastPosition - 1;
+        $end = $firstPosition;
+        $widthValue = strlen($value);
+        $widthFieldFilled = $firstPosition - $lastPosition + 1;
+
+        $testValue = trim($value);
+        if(empty($testValue)){           
+            $value = str_pad(null, $widthFieldFilled, $value);
+            $widthValue = strlen($value);
+        }
+
+        if($widthValue !== $widthFieldFilled){
+            $value = str_pad(null, ($end - $begin), $value);
+        }
+
+        if($widthValue < $end){
+            $this->string = str_pad($this->string, $firstPosition, ' ', STR_PAD_RIGHT);
+        }
+
+        $this->string = substr_replace($this->string, $value, $begin, $end);
+
+        if(strlen($this->string) < $firstPosition){
+            $this->string = str_pad($this->string, $firstPosition, ' ', STR_PAD_RIGHT);
+        }    
+    }    
+    
+    /**
+     * StringObject::removeSpecialCharacter
+     * 
+     * Método que remove caracteres especiais
+     * 
+     * @return void
+     */    
+    public function removeSpecialCharacter()
+    {
+        $specialCharacter = ',.;:/°]~^]{[[+=-)(*&¨%$#@!';
+        $this->string = str_replace(str_split($specialCharacter), '', $this->string);
+    }   
+    
+    /**
+     * StringObject::removeAccentuation
+     * 
+     * Método que remove acentuações
+     * 
+     * @return void
+     */      
+    public function removeAccentuation()
+    {
+        $withAccentuation = array('à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ü', 'ú', 'ÿ', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'O', 'Ù', 'Ü', 'Ú');
+        $withoutAccentuation = array('a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'y', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', '0', 'U', 'U', 'U');
+        $this->string = str_replace($withAccentuation, $withoutAccentuation, $this->string);
+    }     
 }
