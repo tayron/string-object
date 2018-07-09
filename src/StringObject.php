@@ -382,7 +382,7 @@ class StringObject
      * 
      * @return string String concatenada
      */
-    public function fillString($value, $amount = null, $fill = null, $position = 'RIGHT', $remove = array())
+    public function fillString($value, $amount = null, $fill = ' ', $position = 'RIGHT', $remove = array())
     {  
         $amount = (is_null($amount)) ? strlen($value) : $amount;
         $positionList = array('BOTH' => 2, 'RIGHT' => 1, 'LEFT' => 0);
