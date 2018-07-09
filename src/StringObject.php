@@ -39,7 +39,7 @@ class StringObject
      * 
      * @return void
      */
-	public function __construct($string)	
+	public function __construct($string = '')	
 	{
 		$this->string = (string) $string;
 	}
@@ -382,14 +382,15 @@ class StringObject
      * 
      * @return string String concatenada
      */
-    static function fillString($value, $amount, $fill, $position = 'RIGHT', $remove = array())
-    {        
+    public function fillString($value, $amount = null, $fill = null, $position = 'RIGHT', $remove = array())
+    {  
+        $amount = (is_null($amount)) ? strlen($value) : $amount;
         $positionList = array('BOTH' => 2, 'RIGHT' => 1, 'LEFT' => 0);
 
         if(!isset($positionList[$position])){
             throw new Exception("A posicao informada ($position) é invalida, informe: LEFT, RIGHT OU BOTH.");
         }
 
-        return str_pad(substr(str_replace($remove, null, $value), 0, $amount), $amount, $fill, $positionList[$position]);
+        $this->string .= str_pad(substr(str_replace($remove, null, $value), 0, $amount), $amount, $fill, $positionList[$position]);
     }    
 }
