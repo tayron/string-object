@@ -384,12 +384,12 @@ class StringObject
      */
     static function fillString($value, $amount, $fill, $position = 'RIGHT', $remove = array())
     {        
-        $listaPosicoes = array('BOTH' => 2, 'RIGHT' => 1, 'LEFT' => 0);
+        $positionList = array('BOTH' => 2, 'RIGHT' => 1, 'LEFT' => 0);
 
-        if(!isset($listaPosicoes[$position])){
+        if(!isset($positionList[$position])){
             throw new Exception("A posicao informada ($position) é invalida, informe: LEFT, RIGHT OU BOTH.");
         }
 
-        return str_pad(substr(str_replace($remove, null, $value), 0, $amount), $amount, $fill, $listaPosicoes[$position]);
+        return str_pad(substr(str_replace($remove, null, $value), 0, $amount), $amount, $fill, $positionList[$position]);
     }    
 }
