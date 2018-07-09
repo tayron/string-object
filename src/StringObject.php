@@ -129,6 +129,20 @@ class StringObject
     }
     
     /**
+     * StringObject::repeat
+     * 
+     * Método que repete a string um certo número de vezes
+     * 
+     * @param int $number Numero de vezes
+     * 
+     * @return void
+     */    
+    public function repeat($number)
+    {
+        $this->string = str_repeat($this->string, $number);
+    }
+    
+    /**
      * StringObject::format
      * 
      * Método que seta valores para preenchimento de chaves no meio da string,
