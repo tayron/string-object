@@ -64,9 +64,7 @@ try{
     $texto = new StringObject('O rato roeu a roupa do rei de Roma');
     echo $texto->wordCount(); // 9
 
-    
     $string = new StringObject();
-
     $string->fillString('748');
     $string->fillString('.');
     $string->fillString("012.356.356-88", 11, 0, StringObject::LEFT, array('.', '-'));
@@ -76,14 +74,21 @@ try{
     $string->fillString("Caixa ", 30);
     $string->fillString("000");
 
-    $string->removeSpecialCharacter();
+    $string->removeAccentuation();
     $string->toUppercase();
 
+    $linhaDigitavel1 = $string;
+    $linhaDigitavel2 = $string;
+    $linhaDigitavelComplata = $linhaDigitavel1 . PHP_EOL . $linhaDigitavel2;
+
     $arquivo = fopen('teste.txt', 'w');
-    fwrite($arquivo, $string);
+    fwrite($arquivo, $linhaDigitavelComplata);
     fclose($arquivo);
 
-    Irá criar um arquivo txt com o conteúdo: '74801235635688 MARIA BETâNIA RUA C NúMERO 35   CAIXA                         000';
+    Irá criar um arquivo txt com o conteúdo:
+    748.01235635688 MARIA BETANIA RUA C, NUMERO 35   CAIXA                         000
+    748.01235635688 MARIA BETANIA RUA C, NUMERO 35   CAIXA                         000
+
     O que é útil para criar strings com várias informações concatenadas, como por exemplo, criar linha digitável de boleto
 
 }catch(\Exception $e){
