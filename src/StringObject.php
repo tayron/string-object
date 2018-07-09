@@ -9,6 +9,21 @@ namespace Tayron;
 class StringObject
 {
     /**
+     * Posição a que se refere ao preenchimento de string no método fillString
+     */    
+    const LEFT = 'LEFT';
+    
+    /**
+     * Posição a que se refere ao preenchimento de string no método fillString
+     */        
+    const RIGHT = 'RIGHT';
+    
+    /**
+     * Posição a que se refere ao preenchimento de string no método fillString
+     */      
+    const BOTH = 'BOTH';
+        
+    /**
      * Atributo que armazena a string
      * 
      * @var string
@@ -350,4 +365,31 @@ class StringObject
         $withoutAccentuation = array('a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'y', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', '0', 'U', 'U', 'U');
         $this->string = str_replace($withAccentuation, $withoutAccentuation, $this->string);
     }     
+    
+    /**
+     * StringObject::fillString
+     * 
+     * Método que limita e preenche string com valores no inicio ou final até um
+     * certo número de caracteres
+     * 
+     * @param string $value Valor da string
+     * @param string $amount Quantidade de caracteres a ser concatenado
+     * @param string $fill String a ser concatenada, podendo ser qualquer string
+     * @param string $position (LEFT, RIGHT OU BOTH). Valor default DIREITO. Constante com direção em que a string deve ser complementada
+     * @param array  $remove Lista com caracteres a serem removido da estring
+     * 
+     * @throws Exception Caso a posição informada seja inválida uma exceção será lançada
+     * 
+     * @return string String concatenada
+     */
+    static function fillString($value, $amount, $fill, $position = 'RIGHT', $remove = array())
+    {        
+        $listaPosicoes = array('BOTH' => 2, 'RIGHT' => 1, 'LEFT' => 0);
+
+        if(!isset($listaPosicoes[$position])){
+            throw new Exception("A posicao informada ($position) é invalida, informe: LEFT, RIGHT OU BOTH.");
+        }
+
+        return str_pad(substr(str_replace($remove, null, $value), 0, $amount), $amount, $fill, $listaPosicoes[$position]);
+    }    
 }
