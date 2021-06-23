@@ -22,7 +22,7 @@ Classe para gerenciamento de string
 
 ## Utilização via composer
 
-```sh
+```json
     "require": {
         ...
         "tayron/string-object" : "1.0.0"
@@ -31,7 +31,7 @@ Classe para gerenciamento de string
 ```
 
 ## Exemplo de utilização
-```
+```php
 <?php
 use Tayron\StringObject;
 
